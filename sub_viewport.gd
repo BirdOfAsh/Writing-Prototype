@@ -18,3 +18,7 @@ func endDraw():
 
 func swapColor():
 	writing_canvas.swapColor()
+
+
+func undo():
+	writing_canvas.undoLastStroak()

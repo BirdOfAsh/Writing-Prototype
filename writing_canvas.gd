@@ -6,7 +6,8 @@ var activeColor : String = "white"
 var stroakDict : Dictionary[int, Array] = {0 : []}
 var vec2Array : Array[Vector2] = []
 
-func drawAt(posToDraw : Vector2):
+
+func drawAt(posToDraw : Vector2) -> void:
 	vec2Array.append(posToDraw)
 	stroakDict.set(stroakDict.size() - 1, [vec2Array.duplicate(), activeColor])
 	
@@ -16,7 +17,6 @@ func drawAt(posToDraw : Vector2):
 func drawEnd() -> void:
 	vec2Array.clear()
 	stroakDict.set(stroakDict.size(), [[], "transparent"])
-
 
 
 ## this function clears the draw and then redraws every line in all stroak lists in the current draw position list
@@ -34,7 +34,14 @@ func drawFromPositionList() -> void:
 		draw_line(vec2Array[vec2Position], vec2Array[vec2Position + 1], colors[activeColor], 5)
 
 
-func swapColor(): #prob a temperary function
+func undoLastStroak():
+	if stroakDict.size() - 1 != 0:
+		stroakDict.set(stroakDict.size() - 2, stroakDict[stroakDict.size() - 1])
+		stroakDict.erase(stroakDict.size() - 1)
+		drawFromPositionList()
+
+
+func swapColor() -> void: #prob a temperary function
 	match activeColor:
 		
 		"white":

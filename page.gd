@@ -45,6 +45,9 @@ func _process(_delta: float) -> void:
 
 	if Input.is_action_just_pressed("Swap"):
 			viewport.swapColor()
+	
+	if Input.is_action_just_pressed("Undo"):
+		viewport.undo()
 
 
 func raycastOnMousePosition(): #function that creates a raycast from the camera to a space in the 3D world based on the mouse position
