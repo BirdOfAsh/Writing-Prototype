@@ -14,3 +14,7 @@ func drawAtPosition(drawPosition : Vector2):
 
 func endDraw():
 	writing_canvas.drawEnd()
+
+
+func swapColor():
+	writing_canvas.swapColor()

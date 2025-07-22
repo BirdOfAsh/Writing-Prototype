@@ -34,16 +34,17 @@ func _ready() -> void:
 	getOrigin()
 
 
-func _input(_event: InputEvent) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_pressed("Left Click"):
 		drawPosition = findDifference()
 		if drawPosition != null:
 			viewport.drawAtPosition(drawPosition)
-		
-		
-	
+
 	if Input.is_action_just_released("Left Click"):
 		viewport.endDraw()
+
+	if Input.is_action_just_pressed("Swap"):
+			viewport.swapColor()
 
 
 func raycastOnMousePosition(): #function that creates a raycast from the camera to a space in the 3D world based on the mouse position
@@ -104,6 +105,5 @@ func switchStates():
 		transitionTween = get_tree().create_tween()
 		transitionTween.set_parallel()
 		transitionTween.tween_property(self, "position", Vector3(-1, 0.0, -1.272), 0.25)
-		#transitionTween.tween_property(self, "rotation_degrees", Vector3(0, 0, 0), 0.25)
-		transitionTween.tween_property(self, "rotation_degrees", Vector3(-45, 0, 0), 0.25)
+		transitionTween.tween_property(self, "rotation_degrees", Vector3(0, 0, 0), 0.25)
 		active = true
