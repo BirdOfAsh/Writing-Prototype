@@ -3,8 +3,8 @@ extends Node3D
 @onready var viewport : SubViewport = %SubViewport
 @onready var collisionShape : CollisionShape3D = %CollisionShape3D
 
-@export_range(50.0, 1000.0, 50.0) var height : int = 500
-@export_range(50.0, 500.0, 50.0) var width : int = 500
+@export_range(50.0, 1000, 50.0) var height : float = 500.0
+@export_range(50.0, 500.0, 50.0) var width : float = 500.0
 
 var worldMousePos
 var origin : Vector2
@@ -29,6 +29,8 @@ var raycastResult
 
 func _ready() -> void:
 	viewport.setSize(width, height)
+	viewport.setWritingCanvasPosition()
+	SignalBus.emit_signal("updateImageSize", Vector2i(int(width / 5), int(height / 5)))
 	
 	setCollisionShapeSize(width, height)
 	getOrigin()
@@ -38,16 +40,12 @@ func _process(_delta: float) -> void:
 	if Input.is_action_pressed("Left Click"):
 		drawPosition = findDifference()
 		if drawPosition != null:
+			#print(drawPosition)
 			viewport.drawAtPosition(drawPosition)
-
-	if Input.is_action_just_released("Left Click"):
-		viewport.endDraw()
 
 	if Input.is_action_just_pressed("Swap"):
 			viewport.swapColor()
 	
-	if Input.is_action_just_pressed("Undo"):
-		viewport.undo()
 
 
 func raycastOnMousePosition(): #function that creates a raycast from the camera to a space in the 3D world based on the mouse position
@@ -89,7 +87,7 @@ func findDifference(): #return the difference from the origin and the point of t
 		return
 
 	difference = Vector2( abs(worldMousePos.x - getOrigin().x), abs(getOrigin().y + worldMousePos.y) )
-	return difference * ratio
+	return difference * 100
 
 
 func setCollisionShapeSize(x : float, y : float):

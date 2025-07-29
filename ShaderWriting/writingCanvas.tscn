@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dm7nhfvwhfxbu"]
+
+[ext_resource type="Script" uid="uid://bmvmdu4yo3y01" path="res://ShaderWriting/writingCanvas.gd" id="1_im84x"]
+[ext_resource type="Material" uid="uid://7ektrpcrwy1h" path="res://ShaderWriting/drawing_material.tres" id="2_41end"]
+
+[node name="writingCanvas" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_im84x")
+pixelSize = 7.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+material = ExtResource("2_41end")

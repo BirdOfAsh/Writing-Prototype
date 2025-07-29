@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c28lcx4qcswq4"]
 
-[ext_resource type="PackedScene" uid="uid://gqrwjkj7u832" path="res://page.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://15bxybfnhgfe" path="res://character_body_3d.gd" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://c7gd3e4mlvwj1" path="res://Page/page.tscn" id="2_h2yge"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_h2yge"]
 
@@ -26,9 +26,8 @@ shape = SubResource("CylinderShape3D_h2yge")
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
 current = true
 
-[node name="Page" parent="CharacterBody3D" instance=ExtResource("1_ig7tw")]
+[node name="Page" parent="CharacterBody3D" instance=ExtResource("2_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -0.782, -0.37, -1)
-height = 700
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)

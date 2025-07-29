@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://7ektrpcrwy1h"]
+
+[ext_resource type="Shader" uid="uid://1a5ab4x0m5c2" path="res://ShaderWriting/drawing_material.gdshader" id="1_yw12v"]
+
+[resource]
+shader = ExtResource("1_yw12v")
+shader_parameter/pixelSize = 0.05
