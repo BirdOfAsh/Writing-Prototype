@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dht5ver1vmbd8"
-path="res://.godot/imported/BookV1.1.blend-2d2a10ef5844c5d9fd3c43b2c30e53db.scn"
+path="res://.godot/imported/BookV1.1.blend-21a52d79b1cc6c79904788042d091c26.scn"
 
 [deps]
 
-source_file="res://BookV1.1.blend"
-dest_files=["res://.godot/imported/BookV1.1.blend-2d2a10ef5844c5d9fd3c43b2c30e53db.scn"]
+source_file="res://Models/BookV1.1.blend"
+dest_files=["res://.godot/imported/BookV1.1.blend-21a52d79b1cc6c79904788042d091c26.scn"]
 
 [params]
 

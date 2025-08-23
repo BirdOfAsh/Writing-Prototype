@@ -22,7 +22,7 @@ func checkToPlacePixel(posToPlace : Vector2i, image : Image):
 	image.set_pixel(posToPlace.x, posToPlace.y, activeColor)
 
 
-func updateDrawTexture(pixelPos : Vector2):
+func updateDrawTexture(pixelPos : Vector2) -> void:
 	var image : Image = drawTexture.get_image()
 	
 	var pixelX : int = int(pixelPos.x)
@@ -38,14 +38,14 @@ func updateDrawTexture(pixelPos : Vector2):
 	sprite_mat.set_shader_parameter("drawTexture", drawTexture)
 
 
-func updateImageSize(size : Vector2i):
+func updateImageSize(size : Vector2i) -> void:
 	imageSize = size
 	drawTexture = ImageTexture.create_from_image(Image.create_empty(imageSize.x, imageSize.y, false, Image.FORMAT_RGBA8))
 	sprite.texture = drawTexture
 	sprite_mat.set_shader_parameter("drawTexture", drawTexture)
 
 
-func swapColor():
+func swapColor() -> void:
 	match activeColor:
 			Color.WHITE:
 				activeColor = Color.TRANSPARENT
